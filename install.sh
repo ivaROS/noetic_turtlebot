@@ -5,6 +5,6 @@ sudo mkdir catkin_ws && sudo chown -R $USER catkin_ws
 cd catkin_ws
 catkin init
 catkin config --mkdirs --extend /opt/ros/noetic --cmake-args -DCMAKE_BUILD_TYPE="Release" -DCMAKE_CXX_FLAGS_RELEASE="-O2 -g" -DCMAKE_C_FLAGS_RELEASE="-O2 -g"
-wstool init src {path to attached rosinstall file} -j20
+wstool init src https://raw.githubusercontent.com/ivaROS/noetic_turtlebot/main/rosinstall -j20
 catkin build
 sudo bash -c "echo 'source /opt/ros/catkin_ws/devel/setup.bash' > /etc/profile.d/ros-noetic-turtlebot.sh"
