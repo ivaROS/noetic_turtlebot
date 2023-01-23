@@ -20,4 +20,12 @@ source /opt/ros/noetic/setup.bash
 rosdep install --from-paths src --ignore-src -y -r
 
 catkin build
-sudo bash -c "echo 'source /opt/ros/ivalab/devel/setup.bash' > /etc/bash.bashrc"
+
+COMMAND="source /opt/ros/ivalab/devel/setup.bash"
+BASH_FILE="/etc/bash.bashrc"
+if ! grep -Fxq "$COMMAND" "$BASH_FILE"; then
+    sudo bash -c "echo $COMMAND >> $BASH_FILE"
+    echo "Added '$COMMAND' to $BASH_FILE"
+else
+    echo "$BASH_FILE already contains '$COMMAND'"
+fi
