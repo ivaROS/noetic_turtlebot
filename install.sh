@@ -3,7 +3,7 @@ sudo apt install curl -y
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 sudo apt update
 sudo apt install -y ros-noetic-desktop-full \
-python3-catkin-tools python3-wstool python3-rosdep python3-rosinstall python3-rosinstall-generator
+python3-catkin-tools python3-wstool python3-rosdep python3-rosinstall python3-rosinstall-generator python-is-python3
 
 cd /opt/ros
 sudo mkdir -p ivalab && sudo chown -R $USER ivalab
@@ -21,11 +21,23 @@ rosdep install --from-paths src --ignore-src -y -r
 
 catkin build
 
-COMMAND="source /opt/ros/ivalab/devel/setup.bash"
 BASH_FILE="/etc/bash.bashrc"
-if ! grep -Fxq "$COMMAND" "$BASH_FILE"; then
-    sudo bash -c "echo $COMMAND >> $BASH_FILE"
-    echo "Added '$COMMAND' to $BASH_FILE"
-else
-    echo "$BASH_FILE already contains '$COMMAND'"
-fi
+
+function add_to_bashrc {
+    #echo "$#"
+	if (($# == 1)); then
+	    local COMMAND="$1"
+	else
+	    local COMMAND="$2"
+	fi
+	
+	if ! grep -Fq "$1" "$BASH_FILE"; then
+	    sudo bash -c "echo $COMMAND >> $BASH_FILE"
+		echo "Added '$COMMAND' to $BASH_FILE"
+	else
+		echo "$BASH_FILE already contains '$COMMAND'"
+	fi
+}
+
+add_to_bashrc "source /opt/ros/ivalab/devel/setup.bash"
+add_to_bashrc "export TURTLEBOT_3D_SENSOR" "export TURTLEBOT_3D_SENSOR=kinect"
