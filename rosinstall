@@ -1,4 +1,8 @@
 - git:
+    local-name: ivalab/gazebo_fake_localization
+    uri: https://github.com/TurtlebotAdventures/gazebo_fake_localization.git
+    version: master
+- git:
     local-name: kobuki_ros/kobuki
     uri: https://github.com/yujinrobot/kobuki.git
     version: melodic
@@ -6,6 +10,10 @@
     local-name: kobuki_ros/kobuki_desktop
     uri: https://github.com/ivaros/kobuki_desktop.git
     version: noetic
+- git:
+    local-name: ivalab/nav_demos
+    uri: https://github.com/TurtlebotAdventures/nav_demos.git
+    version: master
 - git:
     local-name: turtlebot2/turtlebot
     uri: https://github.com/ivaros/turtlebot.git
