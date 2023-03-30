@@ -6,3 +6,5 @@ Simply run the following command:
 ```
 wget https://raw.githubusercontent.com/ivaROS/noetic_turtlebot/main/install.sh -O /tmp/tbi.sh && bash /tmp/tbi.sh
 ```
+
+You should make sure that curl has been installed if doing from scratch, otherwise the script may break.
