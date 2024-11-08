@@ -8,3 +8,5 @@ wget https://raw.githubusercontent.com/ivaROS/noetic_turtlebot/main/install.sh -
 ```
 
 You should make sure that curl has been installed if doing from scratch, otherwise the script may break.
+
+NOTE: Places packages into `/opt/ros/ivalab` and makes that the main ROS source location that then links to noetic (in `/opt/ros/noetic`).
