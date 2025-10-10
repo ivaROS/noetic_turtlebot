@@ -1,7 +1,12 @@
 # Turtlebot on ROS1 Noetic
 
-Add turtlebot-related packages to a standard noetic installation for Ubuntu 20.04LTS.
+Instructions for installation of ROS1 Noetic, Gazebo Ignition, and Turtlebot interface on Ubuntu 22.04LTS.
+Given that Noetic is EOL, as is 20.04LTS, it takes a little work to get things going. Insights on how to proceed were obtained from a [medium post for Noetic installation](https://medium.com/@jean.guillaume.durand/installing-ros-noetic-on-ubuntu-22-04-1678e9dab1f5) and [a blog post for Gazebo Ignotion installation](https://jeremypedersen.com/posts/2024-07-17-gazebo-ros-install).
 
+
+
+
+### Ignore below
 
 Simply run the following command:
 ```
