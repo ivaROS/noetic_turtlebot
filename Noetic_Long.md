@@ -34,9 +34,9 @@ For other linux flavors, this may or may not be needed.  Just check them in the 
 
 Then, update the ROS package settings to pull from the revised `base.yaml` file.  Edit the file `/etc/ros/rosdep/sources.list.d/20-default.list`. Find the line with `base.yaml` and change it to read:
 ```
-yaml file:///SRCPATH/base.yaml
+yaml file://SRCPATH/base.yaml
 ```
-
+where SRCPATH should include the leading `/` such that there are three of them in a row.
 After the above is done, the file should look like the text below:
 ```
 # os-specific listings first
@@ -44,7 +44,7 @@ yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/osx-homebrew.
 
 # generic
 #yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml
-yaml file:///SRCPATH/base.yaml
+yaml file://SRCPATH/base.yaml
 yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/python.yaml
 yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/ruby.yaml
 gbpdistro https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte.yaml fuerte
