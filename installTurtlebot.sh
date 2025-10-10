@@ -14,9 +14,12 @@ wstool merge -t src https://raw.githubusercontent.com/ivaROS/noetic_turtlebot/ma
 wstool merge -t src https://raw.githubusercontent.com/ivaROS/noetic_turtlebot/main/turtlebot.rosinstall 
 wstool update -t src -j20
 
-patch src/ros_gz/ros_ignition_gazebo < $OWD/patches/ros_ignition_gazebo.patch
-patch src/ros_gz/ros_ignition_bridge < $OWD/patches/ros_ignition_bridge.patch
-patch src/ros_gz/ros_ignition_image < $OWD/patches/ros_ignition_image.patch
+patch src/ros_gz/ros_ign_gazebo/CMakeLists.txt < $OWD/patches/ros_ign_gazebo.patch
+patch src/ros_gz/ros_ign_bridge/CMakeLists.txt < $OWD/patches/ros_ign_bridge.patch
+patch src/ros_gz/ros_ign_image/CMakeLists.txt < $OWD/patches/ros_ign_image.patch
+
+rm -Rf src/kobuki_ros/kobuki_desktop/kobuki_gazebo*
+# Have not yet fixed this.  Deleting until fixed.
 
 sudo rosdep init
 rosdep update

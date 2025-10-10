@@ -1,0 +1,54 @@
+
+
+
+ecl_linear_algebra: Cannot locate rosdep definition for [sophus]
+THIS WAS INSTALLED.  WHAT IS UP?  UNSURE OF HOW TO PROCEED.
+Check Sophus repository to see what to do.  If has CMakeLists, might be OK.
+
+ros_ign_gazebo_demos: No definition of [ignition-gazebo3] for OS version [jammy]
+ros_ign_gazebo: No definition of [ignition-gazebo3] for OS version [jammy]
+MAKE IT BE 11 OR WHAT?
+ros_ign_image: No definition of [ignition-transport8] for OS version [jammy]
+ros_ign_bridge: No definition of [ignition-transport8] for OS version [jammy]
+MAKE IT BE 11?
+
+
+yocs_virtual_sensor: Cannot locate rosdep definition for [rospy_message_converter]
+yocs_localization_manager: Cannot locate rosdep definition for [ar_track_alvar_msgs]
+
+kobuki_node: Cannot locate rosdep definition for [capabilities]
+
+turtlebot_description: Cannot locate rosdep definition for [create_description]
+turtlebot_capabilities: Cannot locate rosdep definition for [std_capabilities]
+kobuki_capabilities: Cannot locate rosdep definition for [std_capabilities]
+turtlebot_dashboard: Cannot locate rosdep definition for [create_dashboard]
+turtlebot_navigation: Cannot locate rosdep definition for [gmapping]
+NEED TO ADD.
+turtlebot_rapps: Cannot locate rosdep definition for [world_canvas_server]
+
+turtlebot_bringup: Cannot locate rosdep definition for [depthimage_to_laserscan]
+JUSTIN SOURCED.
+
+
+GAZEBO SPECIFIC
+
+kobuki_gazebo_plugins: Cannot locate rosdep definition for [gazebo_plugins]
+kobuki_gazebo: Cannot locate rosdep definition for [gazebo_plugins]
+FIX? CAN WE?
+
+gazebo_fake_localization: Cannot locate rosdep definition for [gazebo_msgs]
+
+
+OTHERS
+
+turtlebot_stdr: Cannot locate rosdep definition for [stdr_resources]
+INSTALL STDR?
+
+turtlebot_stage: Cannot locate rosdep definition for [stage_ros]
+DO NOT INSTALL REMOVE FROM REPO.
+
+turtlebot_gazebo: Cannot locate rosdep definition for [robot_pose_ekf]
+
+turtlebot_calibration: Cannot locate rosdep definition for [python_orocos_kdl]
+kobuki_testsuite: Cannot locate rosdep definition for [python_orocos_kdl]
+MAY BE DEPRECETAED/OBSOLETE AND REMOVED.  DOUBLE CHECK
