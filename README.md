@@ -1,5 +1,5 @@
 # noetic_turtlebot
-Add turtlebot-related packages to a standard noetic installation
+Add turtlebot-related packages to a standard noetic installation for Ubuntu 20.04LTS.
 
 
 Simply run the following command:
