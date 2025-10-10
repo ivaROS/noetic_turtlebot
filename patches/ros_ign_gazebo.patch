@@ -1,0 +1,36 @@
+--- CMakeLists.txt	2025-10-10 12:19:39.044419801 -0400
++++ /opt/ros/ivalab_orig/src/ros_gz/ros_ign_gazebo/CMakeLists.txt	2025-10-08 18:31:29.706440015 -0400
+@@ -34,16 +34,26 @@
+   message(STATUS "Compiling against Ignition Edifice")
+ # Default to Citadel
+ else()
+-  find_package(ignition-transport8 REQUIRED)
+-  set(IGN_TRANSPORT_VER ${ignition-transport8_VERSION_MAJOR})
++  find_package(ignition-transport11 REQUIRED)
++  set(IGN_TRANSPORT_VER ${ignition-transport11_VERSION_MAJOR})
+ 
+-  find_package(ignition-msgs5 REQUIRED)
+-  set(IGN_MSGS_VER ${ignition-msgs5_VERSION_MAJOR})
++  find_package(ignition-msgs8 REQUIRED)
++  set(IGN_MSGS_VER ${ignition-msgs8_VERSION_MAJOR})
+ 
+-  find_package(ignition-gazebo3 REQUIRED)
+-  set(IGN_GAZEBO_VER ${ignition-gazebo3_VERSION_MAJOR})
++  find_package(ignition-gazebo6 REQUIRED)
++  set(IGN_GAZEBO_VER ${ignition-gazebo6_VERSION_MAJOR})
+ 
+-  message(STATUS "Compiling against Ignition Citadel")
++  message(STATUS "Compiling against Ignition Fortress")
++  #  find_package(ignition-transport8 REQUIRED)
++  #  set(IGN_TRANSPORT_VER ${ignition-transport8_VERSION_MAJOR})
++  #
++  #  find_package(ignition-msgs5 REQUIRED)
++  #  set(IGN_MSGS_VER ${ignition-msgs5_VERSION_MAJOR})
++  #
++  #  find_package(ignition-gazebo3 REQUIRED)
++  #  set(IGN_GAZEBO_VER ${ignition-gazebo3_VERSION_MAJOR})
++  #
++  #  message(STATUS "Compiling against Ignition Citadel")
+ endif()
+ 
+ ign_find_package(gflags

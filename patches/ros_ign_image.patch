@@ -1,0 +1,28 @@
+--- CMakeLists.txt	2025-10-10 12:19:39.050420184 -0400
++++ /opt/ros/ivalab_orig/src/ros_gz/ros_ign_image/CMakeLists.txt	2025-10-08 18:35:58.997918459 -0400
+@@ -36,13 +36,20 @@
+   message(STATUS "Compiling against Ignition Edifice")
+ # Default to Citadel
+ else()
+-  find_package(ignition-transport8 REQUIRED)
+-  set(IGN_TRANSPORT_VER ${ignition-transport8_VERSION_MAJOR})
++  find_package(ignition-transport11 REQUIRED)
++  set(IGN_TRANSPORT_VER ${ignition-transport11_VERSION_MAJOR})
+ 
+-  find_package(ignition-msgs5 REQUIRED)
+-  set(IGN_MSGS_VER ${ignition-msgs5_VERSION_MAJOR})
++  find_package(ignition-msgs8 REQUIRED)
++  set(IGN_MSGS_VER ${ignition-msgs8_VERSION_MAJOR})
+ 
+-  message(STATUS "Compiling against Ignition Citadel")
++  message(STATUS "Compiling against Ignition Fortress")
++  #find_package(ignition-transport8 REQUIRED)
++  #set(IGN_TRANSPORT_VER ${ignition-transport8_VERSION_MAJOR})
++
++  #find_package(ignition-msgs5 REQUIRED)
++  #set(IGN_MSGS_VER ${ignition-msgs5_VERSION_MAJOR})
++
++  #message(STATUS "Compiling against Ignition Citadel")
+ endif()
+ 
+ catkin_package()
