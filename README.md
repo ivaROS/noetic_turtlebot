@@ -4,7 +4,7 @@ Instructions for installation of ROS1 Noetic, Gazebo Ignition, and Turtlebot int
 
 There are two versions of things.  The long version and the short version.  The long involves manually entering all of the steps.  The short involves using scripts and files from this repository to shorten the workload.  These are files that were prepared _post-facto_ from going through the process. 
 
-## Prepping the System
+## 1] Prepping the System
 
 ### Prep | Short Version
 Just clone this repo where you want to install things from and run the `fromscratchNoetic.sh` file.  As a series of steps including the install path creation:
@@ -45,11 +45,11 @@ sudo apt-get install python3-rosdep python3-rosinstall-generator python3-vcstool
 sudo apt-get install python3-catkin-tools python3-wstool python-is-python3
 ```
 
-## Installing ROS1 Noetic
+## 2] Installing ROS1 Noetic
 
 There are two versions of this process.  A [long version](Noetic_Long.md) and a [short version](Noetic_Short.md).  The long version has the steps all drafted out per the [medium post](https://medium.com/@jean.guillaume.durand/installing-ros-noetic-on-ubuntu-22-04-1678e9dab1f5).  The short version shortcuts all of that by providing the rosinstall file with edits that pull from the proper places to begin with; no need to delete then snag from git some replacement.  Some manual effort is still needed.
 
-## Installing Gazebo
+## 3] Installing Gazebo
 The short version here just involves invoking the script:
 ```
 ./installGazebo.sh
@@ -71,7 +71,7 @@ sudo apt-get install  ignition-fortress libignition-gazebo6-6 libignition-gazebo
 ```
 It should work no problems.  Now you’ve got the foundations needed to complete ROS and ROS-Gazebo-Bridge installation.  It won’t be enough for the Turtlebot, but will be a good start.
 
-## Turtlebot and ROS1-Gazebo Bridge Installation
+## 4] Installing Turtlebot and ROS1-Gazebo Bridge
 
 This portion will download to a different ROS1 workspace, which acts as an extended version of the original Noetic workspace.  It contains a bit more than the original 20.04LTS extended workspace due to missing packages from the ROS1 desktop+perception+viz install from above. As usual there is a long version and a short version (TBD).  See the [Turtlebot instructions](Turtlebot.md).
 
