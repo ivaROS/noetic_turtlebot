@@ -1,12 +1,17 @@
 
+# Get current path, which is presumably where this script being invoked from.
 OWD=`pwd`
 
 # Makes an extended workspace under assumption that base workspace is in /opt/ros/noetic
+# Adjust NOETICPATH if it is elsewhere.  It will then make the extended workspace in 
+# /opt/ros/ivalab
+NOETICPATH=/opt/ros/noetic
+
 cd /opt/ros
 sudo mkdir -p ivalab && sudo chown -R $USER ivalab
 cd ivalab
 catkin init
-catkin config --mkdirs --extend /opt/ros/noetic --cmake-args -DCMAKE_BUILD_TYPE="Release" \
+catkin config --mkdirs --extend $NOETICPATH --cmake-args -DCMAKE_BUILD_TYPE="Release" \
 		-DCMAKE_CXX_FLAGS_RELEASE="-O2 -g" -DCMAKE_C_FLAGS_RELEASE="-O2 -g"
 
 wstool init src
