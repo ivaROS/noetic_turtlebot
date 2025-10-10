@@ -3,7 +3,23 @@
 Instructions for installation of ROS1 Noetic, Gazebo Ignition, and Turtlebot interface on Ubuntu 22.04LTS.
 Given that Noetic is EOL, as is 20.04LTS, it takes a little work to get things going. Insights on how to proceed were obtained from a [medium post for Noetic installation](https://medium.com/@jean.guillaume.durand/installing-ros-noetic-on-ubuntu-22-04-1678e9dab1f5) and [a blog post for Gazebo Ignotion installation](https://jeremypedersen.com/posts/2024-07-17-gazebo-ros-install).  The Turtlebot installation instructions were obtained through trial and error when following through on the [R20.04](https://github.com/ivaROS/noetic_turtlebot/releases/tag/R20.04) version of the instructions.  A few changes are needed due to newer compiler versions. The instructions pack together steps for all three of the above as well as reorganizing the source instructions to pack like operations together.  If only a subset is needed, then there will be a few extra steps executed in the earlier parts of the process (mostly in the form of additional `apt` packages downloaded).
 
-### Get Packages
+There are two versions of things.  The long version and the short version.  The long involves manually entering all of the steps.  The short involves using scripts and files from this repository to shorten the workload.  These are files that were prepared _post-facto_ from going through the process.
+
+## Prepping the System
+
+### Prep | Short Version
+Just clone this repo where you want to install things from and run the `fromscratchNoetic.sh` file.  As a series of steps including the install path creation:
+```
+mkdir SRCPATH
+git clone https://github.com/ivaROS/noetic_turtlebot.git SRCPATH
+cd SRCPATH
+./fromscratchNoetic.sh
+```
+Skip to ROS1 Noetic (long or short version).
+
+### Prep | Long Version 
+
+#### Get Packages
 The assumption is that one is working with a near fresh install of Ubuntu 22.04LTS (since that is our typical use case).
 ```
 sudo apt-get install linux-headers-$(uname -r) git
