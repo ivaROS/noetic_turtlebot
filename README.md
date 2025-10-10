@@ -15,7 +15,7 @@ sudo apt-get install ecl eclib-tools
 ```
 
 ### Gazebo
-Prior to or after compiling ROS, install Gazebo Ignition based on [this how-to](https://jeremypedersen.com/posts/2024-07-17-gazebo-ros-install), which consists of executing the following:
+Prior to or after compiling ROS, install Gazebo Ignition.
 ```
 sudo apt-get update
 sudo apt-get install -y lsb-release wget gnupg
