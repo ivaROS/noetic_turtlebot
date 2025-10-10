@@ -31,7 +31,7 @@
     uri: https://github.com/stonier/ecl_navigation
     version: release/0.60-noetic
 - git:
-    local-name: gazebo-ignotion-ros
+    local-name: gazebo-ignition-ros
     uri: https://github.com/suryapilla/gazebo-ignition-ros.git
     version: main
 - git:
