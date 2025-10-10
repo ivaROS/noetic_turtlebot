@@ -1,8 +1,12 @@
 ### Noetic Compile and Install Long Version
 
 #### Prep Environment
+Initialize the ROS dependency manager:
+```
+sudo rosdep init
+```
 
-Pick a folder to work in.  That folder should be used whenever SRCPATH is written in the instructions below.
+Pick a folder to work in.  That folder should be used whenever SRCPATH is written in the instructions below. The same path will be used to contain the Noetic installation source and serve as a ROS1 workspace.  Keep that in mind when naming it.
 
 ```
 cd SRCPATH
@@ -46,3 +50,49 @@ gbpdistro https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte
 
 # newer distributions (Groovy, Hydro, ...) must not be listed anymore, they are being fetched from the rosdistro index.yaml instead
 ```
+Update the ROS dependency manager:
+```
+rosdep update
+```
+
+### Prep ROS1 Install Code
+
+Get the ROS install dependency list for the `desktop` compile target and augment it with the `perception` and `viz` targets by appending them to the `desktop` list. Everything will be pulled into the SRCPATH by first navigating there:
+```
+cd SRCPATH
+rosinstall_generator desktop --rosdistro noetic --deps --tar > noetic-desktop.rosinstall
+rosinstall_generator perception --rosdistro noetic --deps --tar >> noetic-desktop.rosinstall
+rosinstall_generator viz --rosdistro noetic --deps --tar >> noetic-desktop.rosinstall
+mkdir ./src
+```
+
+The ROS install sources for a few packages need to be revised.  The revisions will be for `rosconsole` and `urdf`.  Again, using favorite editor, find the `rosconsole` and `urdf` lines, then update them.
+```
+- git:
+    local-name: rosconsole
+    uri: https://github.com/dreuter/rosconsole.git
+    version: noetic-jammy
+```
+and
+```
+- git:
+    local-name: urdf/urdf
+    uri: https://github.com/ros-gbp/urdf-release/archive/release/noetic/urdf/1.13.4-1.tar.gz
+    version: urdf-release-release-noetic-urdf-1.13.4-1
+```
+Due to the appending process, there will be duplicates of ``rosconsole`` and ``urdf``. Find and delete those lines.  Or to avoid that, start with just the `desktop` version.  Go through the whole process, then add the `perception` and `viz` versions individually by repeating the process.  Use a different name for the rosinstall file.
+
+Execute:
+```
+vcs import --input noetic-desktop.rosinstall ./src
+```
+and everything should be properly downloaded from specified source locations.  Compile
+```
+cd SRCPATH
+./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release
+```
+To install in the default location `/opt/ros/noetic`, then modify
+```
+./src/catkin/bin/catkin_make_isolated --install --install-space /opt/ros/noetic -DCMAKE_BUILD_TYPE=Release
+```
+Once done, you've got a basic version of Noetic working.  Of course, even this version is missing quite a bit.  The missing parts should be added as needed.  For us, that includes things like the Turtlebot/Kobuki ROS1 code and `move_base`
