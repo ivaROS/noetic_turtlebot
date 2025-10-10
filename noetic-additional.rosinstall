@@ -1,0 +1,48 @@
+- git:
+    local-name: common_msgs
+    uri: https://github.com/ros/common_msgs.git
+    version: neotic-devel
+- git:
+    local-name: geometry2
+    uri: https://github.com/ros/geometry2
+    version: noetic-devel
+- git:
+    local-name: joystick_drivers
+    uri: https://github.com/ros-drivers/joystick_drivers
+    version: ros1
+- git:
+    local-name: teleop_twist_keyboard
+    uri: https://github.com/ros-teleop/teleop_twist_keyboard
+    version: master
+- git:
+    local-name: ecl_core
+    uri: https://github.com/stonier/ecl_core.git
+    version: release/0.62-noetic
+- git:
+    local-name: ecl_lite
+    uri: https://github.com/stonier/ecl_lite
+    version: release/0.61-noetic
+- git:
+    local-name: ecl_tools
+    uri: https://github.com/stonier/ecl_tools
+    version: release/0.61-noetic
+- git:
+    local-name: ecl_navigation
+    uri: https://github.com/stonier/ecl_navigation
+    version: release/0.60-noetic
+- git:
+    local-name: gazebo-ignotion-ros
+    uri: https://github.com/suryapilla/gazebo-ignition-ros.git
+    version: main
+- git:
+    local-name: ros_gz
+    uri: https://github.com/gazebosim/ros_gz.git
+    version: noetic
+- git:
+    local-name: navigation
+    uri: https://github.com/ros-planning/navigation
+    version: noetic
+- git:
+    local-name: navigation_msgs
+    uri: https://github.com/ros-planning/navigation_msgs.git
+    version: ros1
