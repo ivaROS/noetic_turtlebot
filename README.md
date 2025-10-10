@@ -73,15 +73,6 @@ It should work no problems.  Now you’ve got the foundations needed to complete
 
 ### Turtlebot and ROS1-Gazebo Bridge Installation
 
-TBD.
+This portion will download to a different ROS1 workspace, which acts as an extended version of the original Noetic workspace.  It contains a bit more than the original 20.04LTS extended workspace due to missing packages from the ROS1 desktop+perception+viz install from above. As usual there is a long version and a short version (TBD).
 
-### Ignore below
 
-Simply run the following command:
-```
-wget https://raw.githubusercontent.com/ivaROS/noetic_turtlebot/main/install.sh -O /tmp/tbi.sh && bash /tmp/tbi.sh
-```
-
-You should make sure that curl has been installed if doing from scratch, otherwise the script may break.
-
-NOTE: Places packages into `/opt/ros/ivalab` and makes that the main ROS source location that then links to noetic (in `/opt/ros/noetic`).
