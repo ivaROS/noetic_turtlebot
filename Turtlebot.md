@@ -2,7 +2,7 @@
 
 An attempt was made to make this as simple as possible.  There are two additional rosinstall files that need to be incorporated into the base install that will go into a separate extended workspace.
 
-If all works out, this isntall should be as simple as running a single script from within the SRCPATH:
+If all works out, this install should be as simple as running a single script from within the SRCPATH:
 ```
 ./installTurtlebot.sh
 ```
