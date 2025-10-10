@@ -12,11 +12,11 @@ Pick a folder to work in.  That folder should be used whenever SRCPATH is writte
 cd SRCPATH
 wget https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml
 ```
-Open the file using favorite editor (vim, emacs, gedit, ...) and modify the `ubuntu` field to include jammy (the Ubuntu 22.04LTS name). If you are new to things, just use gedit:
+Open the file using favorite editor (vim, emacs, gedit, ...) and modify the `ubuntu` field of the `hddtemp` specification to include jammy (the Ubuntu 22.04LTS name). If you are new to things, just use gedit:
 ```
 gedit SRCPATH/base.yaml
 ```
-The added line is:
+Search for the line starting with `hddtemp:` then edit its sub-parameters by appending the line below:
 ```
     jammy: [hddtemp]
 ```
@@ -29,13 +29,14 @@ so that the `ubuntu` field reads
     impish: [hddtemp]
     jammy: [hddtemp]
 ```
+or something to that effect (the impish line might be missing; that's OK).
 For other linux flavors, this may or may not be needed.  Just check them in the list of flavors supported.  Add yours if it is different.
 
 Then, update the ROS package settings to pull from the revised `base.yaml` file.  Edit the file `/etc/ros/rosdep/sources.list.d/20-default.list`. Find the line with `base.yaml` and change it to read:
 ```
-yaml file:///SRCPATH/base.yaml
+yaml file://SRCPATH/base.yaml
 ```
-
+where SRCPATH should include the leading `/` such that there are three of them in a row.
 After the above is done, the file should look like the text below:
 ```
 # os-specific listings first
@@ -43,7 +44,7 @@ yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/osx-homebrew.
 
 # generic
 #yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml
-yaml file:///SRCPATH/base.yaml
+yaml file://SRCPATH/base.yaml
 yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/python.yaml
 yaml https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/ruby.yaml
 gbpdistro https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte.yaml fuerte
