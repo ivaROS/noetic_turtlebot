@@ -31,7 +31,7 @@ sudo apt-get install python3-catkin-tools python3-wstool python-is-python3
 
 ### ROS1 Noetic
 
-There are two versions of this process.  A long version and a short version.  The long version has the steps all drafted out per the [medium post](https://medium.com/@jean.guillaume.durand/installing-ros-noetic-on-ubuntu-22-04-1678e9dab1f5).  The short version shortcuts all of that by providing the rosinstall file with edits that pull from the proper places to begin with; no need to delete then snag from git some replacement.
+There are two versions of this process.  A [long version](Noetic_long.md) and a short version.  The long version has the steps all drafted out per the [medium post](https://medium.com/@jean.guillaume.durand/installing-ros-noetic-on-ubuntu-22-04-1678e9dab1f5).  The short version shortcuts all of that by providing the rosinstall file with edits that pull from the proper places to begin with; no need to delete then snag from git some replacement.
 
 ### Gazebo
 Prior to or after compiling ROS, install Gazebo Ignition.
