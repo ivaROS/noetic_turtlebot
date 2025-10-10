@@ -7,6 +7,14 @@
     uri: https://github.com/yujinrobot/kobuki.git
     version: melodic
 - git:
+    local-name: kobuki_ros/kobuki_msgs
+    uri: https://github.com/yujinrobot/kobuki_msgs
+    version: noetic
+- git:
+    local-name: kobuki_ros/kobuki_core
+    uri: https://github.com/yujinrobot/kobuki_core
+    version: noetic
+- git:
     local-name: kobuki_ros/kobuki_desktop
     uri: https://github.com/ivaros/kobuki_desktop.git
     version: noetic
