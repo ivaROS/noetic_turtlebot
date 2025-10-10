@@ -13,6 +13,9 @@ sudo apt-get install pkg-config libyaml-dev  g++ scons  libbullet-dev libsdl1.2-
 sudo app-get install libspnav0 libspnav-dev bluetooth libbluetooth-devlibcwiid-dev libcwiid1
 sudo apt-get install ecl eclib-tools
 ```
+### ROS1 Noetic
+
+There are two versions of this process.  A long version and a short version.  The long version has the steps all drafted out per the [medium post](https://medium.com/@jean.guillaume.durand/installing-ros-noetic-on-ubuntu-22-04-1678e9dab1f5).  The short version shortcuts all of that by providing the rosinstall file with edits that pull from the proper places to begin with; no need to delete then snag from git some replacement.
 
 ### Gazebo
 Prior to or after compiling ROS, install Gazebo Ignition.
