@@ -1,7 +1,7 @@
 - git:
     local-name: common_msgs
     uri: https://github.com/ros/common_msgs.git
-    version: neotic-devel
+    version: noetic-devel
 - git:
     local-name: geometry2
     uri: https://github.com/ros/geometry2
@@ -41,7 +41,7 @@
 - git:
     local-name: navigation
     uri: https://github.com/ros-planning/navigation
-    version: noetic
+    version: noetic-devel
 - git:
     local-name: navigation_msgs
     uri: https://github.com/ros-planning/navigation_msgs.git
