@@ -63,5 +63,5 @@ _EIGEN vs EIGEN3 Warning:_ <BR>
 A lot of the code uses the EIGEN package specification.  Warnings are spit out that the find directive should search for EIGEN3.  Those cmake specifications should be adjusted eventually. 
 
 _More Eigen3 Problems:_ <BR>
-Some elements of the cmake package settings for Eigen3 have been removed, which means that using expected variables and conditionals in the CMakeLists file will actually not work.  It just has to be removed.  For `ecl_eigen` package, that was done, which means that everything should compile with the system Eigen3 version.  See the patch for `ecl_eigen`, which strips the old stuff out.
+Some elements of the cmake package settings for Eigen3 have been removed, which means that using expected variables and conditionals in the CMakeLists file will actually not work.  It just has to be removed.  For `ecl_eigen` package, that was done, which means that everything should compile with the system Eigen3 version.  See the patch for `ecl_eigen`, which strips the old stuff out.  The current setup works, but adding new packages may cause these kinds of errors (for example EIGEN3_FOUND is no longer valid).
 
