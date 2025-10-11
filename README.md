@@ -56,7 +56,7 @@ sudo apt-get install python3-catkin-tools python3-wstool python-is-python3
 
 There are two versions of this process.  A [long version](Noetic_Long.md) and a [short version](Noetic_Short.md).  The long version has the steps all drafted out per the [medium post](https://medium.com/@jean.guillaume.durand/installing-ros-noetic-on-ubuntu-22-04-1678e9dab1f5).  The short version shortcuts all of that by providing the rosinstall file with edits that pull from the proper places to begin with; no need to delete then snag from git some replacement.  Some manual effort is still needed.
 
-Once done it is good to remove the package source `/etc/apt/sources.list.d/ros-noetic-focal.list` to prevent potential issues.
+Once done it is good to remove the package source `/etc/apt/sources.list.d/ros-noetic-focal.list` to prevent potential issues. Depending on how things work, it might need to be put back there in the future when doing ROS1 additions to the base installation.
 
 ## 3] Installing Gazebo
 The short version here just involves invoking the script:
