@@ -79,7 +79,7 @@ and
     uri: https://github.com/dreuter/urdf.git
     version: set-cxx-version
 ```
-Due to the appending process, there will be duplicates of ``rosconsole`` and ``urdf``. Find and delete those lines. Also delete the one associated to `urdf_parser_lugin` since the above `urdf` repository contains it too.
+Due to the appending process, there will be duplicates of ``rosconsole`` and ``urdf``. Find and delete those lines. Also delete the one associated to `urdf_parser_plugin` since the above `urdf` repository contains it too.
 
 Execute:
 ```
