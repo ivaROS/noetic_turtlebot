@@ -15,7 +15,7 @@ cd SRCPATH
 ./fromscratchNoetic.sh
 ```
 Skip to ROS1 Noetic (long or short version).
-For this short version, the above command renames the repo when downloading to the terminal substring in SRCPATH.  Make sure that is it something reasonable.  We use 'noesrc' for example with a separate final install path.
+For this short version, the above command renames the repo when downloading to the terminal substring in SRCPATH.  Make sure that it is something reasonable.  We use 'noesrc' for example with a separate final install path.
 
 ### Prep | Long Version 
 
