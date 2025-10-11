@@ -34,13 +34,13 @@ wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15
 sudo apt install ~/Downloads/hddtemp_0.3-beta15-53_amd64.deb
 ```
 
-Now would be an awesome time to install Gazebo Ignition (Fortress) if that's on the agenda.  The step below adds
-older package sources and it is best to not to have those sources available.  I've had trouble with Gazebo and 
-it may be a sensitivty to ordering. It may be that the current process has resolved those issues as some learning
-was done along the way. The short version does the Gazebo Ignition install here and there is no need to run the 
-`installGazebo` script.
+Now would be an awesome time to install Gazebo Ignition (Fortress) if that's on the agenda.  The ROS1 steps that
+follow just below this paragraph add older package sources and it is best to not to have those sources available.  
+I've had trouble with Gazebo and it may be a sensitivty to ordering. It may be that the current process has resolved
+those issues as some learning was done along the way. The short version does the Gazebo Ignition install here and
+there is no need to run the `installGazebo` script.
 
-Configure ROS sources to permit packages to be snagged from 20.04LTS version
+Configure ROS1 sources to permit packages to be snagged from 20.04LTS version (named Focal):
 ```
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu focal main" > /etc/apt/sources.list.d/ros-latest.list'
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
