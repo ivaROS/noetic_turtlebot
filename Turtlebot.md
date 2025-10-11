@@ -31,7 +31,7 @@ make
 sudo make install
 ```
 
-If using this option, then delete the apt line installing `ros-noetic-sophus` as the compile and make install will add it to the system.
+If using this option, then commenting out the apt line installing `ros-noetic-sophus` as the compile and make install will add it to the system.
 
 ### 
 
