@@ -56,3 +56,5 @@ Now, this is where the short version kicks in.  Just execute the Noeitc compile 
 ./compileNoetic.sh
 ```
 It will use the canned rosinstall file located in this repository (`noetic-sources.rosinstall`), which pulls from the proper locations.  It will install to `/opt/ros/noetic'.  If you want to keep this current folder as the official Noetic install, then swap out which line is uncommented versus commented in the script.
+
+Of course, if it craps out then you'll have to look at the [Problems section](https://github.com/ivaROS/noetic_turtlebot/blob/main/Noetic_Long.md#problems-and-nasty-fixes) to see if it relates to one of these we've experienced and resolved in a not so pretty manner.
