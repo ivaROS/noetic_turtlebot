@@ -107,7 +107,7 @@ Sometimes, the import line bonks out because some packages do not download from 
 _stereo_msgsConfig.cmake missing:_ <BR>
 For some funny reason the `image_view` package cannot find the `stereo_msgs` package that should have been built earlier on in the process.  That leads the compilation to stop and complain.  There are two solutions.  One is to provide a compiler directive flag to the catkin make command
 ```
--Dstereo_msg_DIR=SRCPATH/install_isolated/share/stereo_msgs/cmake
+-Dstereo_msgs_DIR=SRCPATH/install_isolated/share/stereo_msgs/cmake
 ```
 which applies to ALL packages and will give warnings for every package compiled, except for the `image_view` one or any other later package relying on `stereo_msgs`.  Another is to go to the CMakeLists.txt file of each of those packages relying on `stereo_msgs` and adding the missing variable directly for the CMakeLists.  Right before the first `find_package` line as a set directive:
 ```
