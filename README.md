@@ -33,6 +33,12 @@ cd ~/Downloads
 wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15-53_amd64.deb
 sudo apt install ~/Downloads/hddtemp_0.3-beta15-53_amd64.deb
 ```
+
+Now would be an awesome time to install Gazebo Ignition (Fortress) if that's on the agenda.  The step below adds
+older package sources and it is best to not to have those sources available.  I've had trouble with Gazebo and 
+it may be a sensitivty to ordering. It may be that the current process has resolved those issues as some learning
+was done along the way.
+
 Configure ROS sources to permit packages to be snagged from 20.04LTS version
 ```
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu focal main" > /etc/apt/sources.list.d/ros-latest.list'
