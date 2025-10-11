@@ -26,7 +26,8 @@ patch src/ros_gz/ros_ign_image/CMakeLists.txt < $OWD/patches/ros_ign_image.patch
 rm -Rf src/kobuki_ros/kobuki_desktop/kobuki_gazebo*
 # Have not yet fixed this.  Deleting until fixed.
 
-sudo rosdep init
+# Line below already run as part of ROS1 install.  Commenting out. It complains when run again.
+# sudo rosdep init
 rosdep update
 source /opt/ros/noetic/setup.bash
 rosdep install --from-paths src --ignore-src -y -r
