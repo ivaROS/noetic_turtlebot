@@ -1,4 +1,8 @@
 - git:
+    local-name: common_msgs
+    uri: https://github.com/ros/common_msgs.git
+    version: noetic-devel
+- git:
     local-name: ivalab/gazebo_fake_localization
     uri: https://github.com/TurtlebotAdventures/gazebo_fake_localization.git
     version: master

@@ -1,8 +1,4 @@
 - git:
-    local-name: common_msgs
-    uri: https://github.com/ros/common_msgs.git
-    version: noetic-devel
-- git:
     local-name: geometry2
     uri: https://github.com/ros/geometry2
     version: noetic-devel
@@ -46,3 +42,11 @@
     local-name: navigation_msgs
     uri: https://github.com/ros-planning/navigation_msgs.git
     version: ros1
+- git:
+    local-name: octomap/octomap_msgs
+    uri: https://github.com/OctoMap/octomap_msgs.git
+    version: melodic-devel
+- git:
+    local-name: octomap/octomap_rviz_plugins
+    uri: https://github.com/OctoMap/octomap_rviz_plugins.git
+    version: kinetic-devel
