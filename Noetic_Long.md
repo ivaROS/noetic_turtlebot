@@ -116,6 +116,6 @@ which applies to ALL packages and will give warnings for every package compiled,
 ```
 set(stereo_msgs_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../install_isolated/share/stereo_msgs/cmake)
 ```
-The above uses relative paths for the make isolated catkin build so that it is less dependent on where you've put things. For example, in the case of the `image_view` package, the file can be found in `SRCPATH/src/image_pipeline/image_view/CmakeLists.txt`.
+The above uses relative paths for the make isolated catkin build so that it is less dependent on where you've put things. For example, in the case of the `image_view` package, the file can be found in `SRCPATH/src/image_pipeline/image_view/CmakeLists.txt`. A different compilation scheme or set of flags may require a different intervention.  The approach is to find the `stereo_msgsConfig.cmake` file that got built then inform the `image_view-CMakeLists.txt` file about the path. Not pretty, but functional.
 
 
