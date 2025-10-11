@@ -12,22 +12,42 @@ cd ~/Downloads
 wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15-53_amd64.deb
 sudo apt install ~/Downloads/hddtemp_0.3-beta15-53_amd64.deb
 
-# Set package manager to snag ROS stuff from older Ubuntu 20.04LTS sources.
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu focal main" > /etc/apt/sources.list.d/ros-latest.list'
-curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
-sudo apt update
+echo "===== APT CORE PACKAGES done."
 
-# Get the ROS1 python and building utilities.
-sudo apt-get install python3-rosdep python3-rosinstall-generator python3-vcstools python3-vcstool build-essential
-sudo apt-get install python3-catkin-tools python3-wstool python-is-python3
-
-# Now for Gazebo parts.
+# Start with the Gazebo Ignition - Fortress parts before apt package manager gets messed with by adding
+# the Noetic ROS sources.  This install has been troublesome.  It looks like ordering is important, as
+# well as specifying the minium possible.  What is below should do the trick.
+#
 sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 sudo apt-get update
 
-sudo apt-get install -y ignition-fortress libignition-gazebo6-6 libignition-gazebo-dev libignition-gazebo-plugins
+sudo apt-get install -y libsdformat12 libsdformat12-dev
+sudo apt-get install -y ignition-fortress 
 
+echo "===== GAZEBO - IGNITION FORTRESS package install done."
+
+# Install ROS-relevant libraries that are not bound to older sources.
+#
+sudo apt-get install python3-opencv libopencv-dev libopencv-core-dev
+sudo apt-get install pyqt5-dev python3-pyqt5 libgtest-dev liblz4-dev liborocos-kdl-dev libbz2-dev \
+	libgpgme-dev libyaml-cpp-dev libyaml-dev
+sudo apt-get install build-essential python3-empy python3-sip python3-nose
+
+echo "===== ROS1 Library Dependencies and Python Libraries done."
+echo "===== ROS1 Specialized packages next." 
+
+# Set package manager to snag ROS stuff from older Ubuntu 20.04LTS sources.
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu focal main" > /etc/apt/sources.list.d/ros-noetic-focal.list'
+#curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
+sudo apt update
+
+# Get the ROS1 python and building utilities.
+sudo apt-get install python3-rosdep python3-rosinstall-generator python3-vcstools python3-vcstool 
+sudo apt-get install python3-catkin-tools python3-wstool python-is-python3 
+
+echo "===== ROS1 Specialized packages done. running rosdep init, then ready to go." 
 
 # Initialize ROS dependency manager.  Now ready to go with next steps once done.
 sudo rosdep init
