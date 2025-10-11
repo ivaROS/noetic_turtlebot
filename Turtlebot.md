@@ -7,3 +7,5 @@ If all works out, this install should be as simple as running a single script fr
 ./installTurtlebot.sh
 ```
 If started in proper path and running as expected, then there should be a ton of output, some compiling information being output, then finally 147 packages successfully compiled.  Of those 105 will succeed with warnings.
+
+when done, if not more ROS1 development will be done, it is probably best to get rid of the apt source for ROS1 Noetic/Focal.
