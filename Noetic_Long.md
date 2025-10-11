@@ -97,7 +97,10 @@ To install in the default location `/opt/ros/noetic`, then modify
 ```
 ./src/catkin/bin/catkin_make_isolated --install --install-space /opt/ros/noetic -DCMAKE_BUILD_TYPE=Release
 ```
-Once done, you've got a basic version of Noetic working.  Of course, even this version is missing quite a bit.  The missing parts should be added as needed.  For us, that includes things like the Turtlebot/Kobuki ROS1 code and `move_base`
+The last line of outptu sould be something like:
+> <== Finished processing package [211 of 211]: 'xacro'
+
+Once done, you've got a basic version of Noetic working.  Of course, even this version is missing quite a bit.  The missing parts should be added as needed.  For us, that includes things like the Turtlebot/Kobuki ROS1 code and `move_base`.
 
 ## Problems and Nasty Fixes
 
