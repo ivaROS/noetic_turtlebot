@@ -99,7 +99,7 @@ To install in the default location `/opt/ros/noetic`, then modify
 ```
 Once done, you've got a basic version of Noetic working.  Of course, even this version is missing quite a bit.  The missing parts should be added as needed.  For us, that includes things like the Turtlebot/Kobuki ROS1 code and `move_base`
 
-## Problems
+## Problems and Nasty Fixes
 
 _vcs import fails to download:_ <BR>
 Sometimes, the import line bonks out because some packages do not download from their git source.  In those cases, removing the `--tar` flag helps as they are successfully pulled from the source repository.  The compile script explains how to shift the source files from being tar files to being the actual git repo.  For the short version, there is already a rosinstall file (small name change).  For the long version, the instructions should be there.
