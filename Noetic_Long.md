@@ -109,7 +109,7 @@ For some funny reason the `image_view` package cannot find the `stereo_msgs` pac
 ```
 -Dstereo_msgs_DIR=SRCPATH/install_isolated/share/stereo_msgs/cmake
 ```
-which applies to ALL packages and will give warnings for every package compiled, except for the `image_view` one or any other later package relying on `stereo_msgs`.  Another is to go to the CMakeLists.txt file of each of those packages relying on `stereo_msgs` and adding the missing variable directly for the CMakeLists.  Right before the first `find_package` line as a set directive:
+which applies to ALL packages and will give warnings for every package compiled, except for the `image_view` one or any other later package relying on `stereo_msgs`.  Another is to go to the CMakeLists.txt file of each of those packages relying on `stereo_msgs` and adding the missing variable directly for the CMakeLists.  Right before the first `find_package` line add a set directive:
 ```
 set(stereo_msgs_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../install_isolated/share/stereo_msgs/cmake)
 ```
