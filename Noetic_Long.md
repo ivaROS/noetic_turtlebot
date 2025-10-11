@@ -102,7 +102,7 @@ Once done, you've got a basic version of Noetic working.  Of course, even this v
 ## Problems
 
 _vcs import fails to download:_ <BR>
-Sometimes, the `rosinstall_generator` line bonks out because some packages do not download from their git source.  In those cases, removing the `--tar` flag helps as they are successfully pulled from the source repository.
+Sometimes, the `rosinstall_generator` line bonks out because some packages do not download from their git source.  In those cases, removing the `--tar` flag helps as they are successfully pulled from the source repository.  The compile script explains how to shift the source files from being tar files to being the actual git repo.  For the short version, there is already a rosinstall file (small name change).  For the long version, the instructions should be there.
 
 _stereo_msgsConfig.cmake missing:_ <BR>
 For some funny reason the `image_view` package cannot find the `stereo_msgs` package that should have been built earlier on in the process.  That leads the compilation to stop and complain.  There are two solutions.  One is to provide a compiler directive flag to the catkin make command
