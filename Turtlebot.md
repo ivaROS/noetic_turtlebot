@@ -42,9 +42,9 @@ If all works out, this install should be as simple as running a single script fr
 
 If started in proper path and running as expected, then there should be a ton of output, some compiling information being output, then finally 146 packages successfully compiled.  In the last compile attempt, the following lines were output by the process:
 
-> [build] Summary: All 146 packages succeeded!
+> [build] Summary: All 148 packages succeeded!
 > [build]   Ignored:   None.                                                                               
-> [build]   Warnings:  57 packages succeeded with warnings.
+> [build]   Warnings:  148 packages succeeded with warnings.
 > [build]   Abandoned: None.                                                                               
 > [build]   Failed:    None.                                                                               
 > [build] Runtime: 1 minute and 44.5 seconds total.                                                        
