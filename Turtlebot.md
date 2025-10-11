@@ -57,3 +57,8 @@ The output above indicates to re-source the setup file.  For this build in `/opt
 source /opt/ros/ivalab/devel/setup.bash
 ```
 
+## Warnings to Eventually Address
+
+_EIGEN vs EIGEN3 Warning:_ <BR>
+A lot of the code uses the EIGEN package specification.  Warnings are spit out that the find directive should search for EIGEN3.  Those cmake specifications should be adjusted eventually.
+
