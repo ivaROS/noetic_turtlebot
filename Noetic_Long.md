@@ -1,6 +1,6 @@
-### Noetic Compile and Install Long Version
+## Noetic Compile and Install Long Version
 
-#### Prep Environment
+### Prep Environment
 Initialize the ROS dependency manager:
 ```
 sudo rosdep init
@@ -61,9 +61,7 @@ rosdep update
 Get the ROS install dependency list for the `desktop` compile target and augment it with the `perception` and `viz` targets by appending them to the `desktop` list. Everything will be pulled into the SRCPATH by first navigating there:
 ```
 cd SRCPATH
-rosinstall_generator desktop --rosdistro noetic --deps --tar > noetic-desktop.rosinstall
-rosinstall_generator perception --rosdistro noetic --deps --tar >> noetic-desktop.rosinstall
-rosinstall_generator viz --rosdistro noetic --deps --tar >> noetic-desktop.rosinstall
+rosinstall_generator --rosdistro noetic --deps --tar desktop perception viz > noetic-desktop.rosinstall
 mkdir ./src
 ```
 
@@ -77,17 +75,20 @@ The ROS install sources for a few packages need to be revised.  The revisions wi
 and
 ```
 - git:
-    local-name: urdf/urdf
-    uri: https://github.com/ros-gbp/urdf-release/archive/release/noetic/urdf/1.13.4-1.tar.gz
-    version: urdf-release-release-noetic-urdf-1.13.4-1
+    local-name: urdf
+    uri: https://github.com/dreuter/urdf.git
+    version: set-cxx-version
 ```
-Due to the appending process, there will be duplicates of ``rosconsole`` and ``urdf``. Find and delete those lines.  Or to avoid that, start with just the `desktop` version.  Go through the whole process, then add the `perception` and `viz` versions individually by repeating the process.  Use a different name for the rosinstall file.
+Due to the appending process, there will be duplicates of ``rosconsole`` and ``urdf``. Find and delete those lines. Also delete the one associated to `urdf_parser_plugin` since the above `urdf` repository contains it too.
 
 Execute:
 ```
 vcs import --input noetic-desktop.rosinstall ./src
 ```
-and everything should be properly downloaded from specified source locations.  Compile
+and everything should be properly downloaded from specified source locations.  
+
+### Actual Compile
+Compile
 ```
 cd SRCPATH
 ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release
@@ -96,4 +97,25 @@ To install in the default location `/opt/ros/noetic`, then modify
 ```
 ./src/catkin/bin/catkin_make_isolated --install --install-space /opt/ros/noetic -DCMAKE_BUILD_TYPE=Release
 ```
-Once done, you've got a basic version of Noetic working.  Of course, even this version is missing quite a bit.  The missing parts should be added as needed.  For us, that includes things like the Turtlebot/Kobuki ROS1 code and `move_base`
+The last line of outptu sould be something like:
+> <== Finished processing package [211 of 211]: 'xacro'
+
+Once done, you've got a basic version of Noetic working.  Of course, even this version is missing quite a bit.  The missing parts should be added as needed.  For us, that includes things like the Turtlebot/Kobuki ROS1 code and `move_base`.
+
+## Problems and Nasty Fixes
+
+_vcs import fails to download:_ <BR>
+Sometimes, the import line bonks out because some packages do not download from their git source.  In those cases, removing the `--tar` flag helps as they are successfully pulled from the source repository.  The compile script explains how to shift the source files from being tar files to being the actual git repo.  For the short version, there is already a rosinstall file (small name change).  For the long version, the instructions should be there.
+
+_stereo_msgsConfig.cmake missing:_ <BR>
+For some funny reason the `image_view` package cannot find the `stereo_msgs` package that should have been built earlier on in the process.  That leads the compilation to stop and complain.  There are two solutions.  One is to provide a compiler directive flag to the catkin make command
+```
+-Dstereo_msgs_DIR=SRCPATH/install_isolated/share/stereo_msgs/cmake
+```
+which applies to ALL packages and will give warnings for every package compiled, except for the `image_view` one or any other later package relying on `stereo_msgs`.  Another is to go to the CMakeLists.txt file of each of those packages relying on `stereo_msgs` and adding the missing variable directly for the CMakeLists.  Right before the first `find_package` line add a set directive:
+```
+set(stereo_msgs_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../install_isolated/share/stereo_msgs/cmake)
+```
+The above uses relative paths for the make isolated catkin build so that it is less dependent on where you've put things. For example, in the case of the `image_view` package, the file can be found in `SRCPATH/src/image_pipeline/image_view/CmakeLists.txt`. A different compilation scheme or set of flags may require a different intervention.  The approach is to find the `stereo_msgsConfig.cmake` file that got built then inform the `image_view/CMakeLists.txt` file about the path. Not pretty, but functional.
+
+
