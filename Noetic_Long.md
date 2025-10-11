@@ -99,7 +99,20 @@ To install in the default location `/opt/ros/noetic`, then modify
 ```
 Once done, you've got a basic version of Noetic working.  Of course, even this version is missing quite a bit.  The missing parts should be added as needed.  For us, that includes things like the Turtlebot/Kobuki ROS1 code and `move_base`
 
-#### Problems
+## Problems
 
 _vcs import fails to download:_ 
 Sometimes, the `rosinstall_generator` line bonks out because some packages do not download from their git source.  In those cases, removing the `--tar` flag helps as they are successfully pulled from the source repository.
+
+_stereo_msgsConfig.cmake missing:_ 
+For some funny reason the `image_view` package cannot find the `stereo_msgs` package that should have been built earlier on in the process.  That leads the compilation to stop and complain.  There are two solutions.  One is to provide a compiler directive flag to the catkin make command
+```
+-D SRCPATH/install_isolated/share/stereo_msgs/cmake
+```
+which applies to ALL packages and will give warnings for every package compiled, except for the `image_view` one or any other later package relying on `stereo_msgs`.  Another is to go to the CMakeLists.txt file of each of those packages relying on `stereo_msgs` and adding the missing variable directly for the CMakeLists.  Right before the first `find_package` line as a set directive:
+```
+set(stereo_msgs_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../install_isolated/share/stereo_msgs/cmake)
+```
+The above uses relative paths for the make isolated catkin build so that it is less dependent on where you've put things.
+
+
