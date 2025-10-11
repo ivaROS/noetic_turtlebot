@@ -9,7 +9,7 @@ The long version has those commands here.
 
 #### Easy Install
 ```
-sudo apt-get isntall -y ros-noetic-sophus
+sudo apt-get install -y ros-noetic-sophus
 ```
 
 #### Hard Install
