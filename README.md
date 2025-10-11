@@ -37,7 +37,8 @@ sudo apt install ~/Downloads/hddtemp_0.3-beta15-53_amd64.deb
 Now would be an awesome time to install Gazebo Ignition (Fortress) if that's on the agenda.  The step below adds
 older package sources and it is best to not to have those sources available.  I've had trouble with Gazebo and 
 it may be a sensitivty to ordering. It may be that the current process has resolved those issues as some learning
-was done along the way.
+was done along the way. The short version does the Gazebo Ignition install here and there is no need to run the 
+`installGazebo` script.
 
 Configure ROS sources to permit packages to be snagged from 20.04LTS version
 ```
