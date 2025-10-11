@@ -69,6 +69,7 @@ patch src/ecl_core/ecl_eigen/CMakeLists.txt < $OWD/patches/ecl_eigen.patch
 export HPATH="$IVAPATH/src/gazebo-ignition-ros/semantic_segmentation_husky/sdf"
 export NEWHUSKY="$HPATH/husky.sdf"
 sed -i "s|husky\.sdf|$NEWHUSKY|g" $HPATH/world.sdf
+cp $OWD/patches/husky_teleop.py $HPATH/../scripts/
 
 catkin build
 
