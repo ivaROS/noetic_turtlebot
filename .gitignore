@@ -1,0 +1,6 @@
+build_isolated
+devel_isolated
+install_isolated
+lsrc
+src*
+.catkin_workspace
