@@ -56,6 +56,31 @@ The output above indicates to re-source the setup file.  For this build in `/opt
 ```
 source /opt/ros/ivalab/devel/setup.bash
 ```
+#### Test Build
+
+The first test assumes that the Gazebo install process was also included, as the Turtlebot install included a Husky simulation repository structly for testing purposes.  In one terminal:
+```
+source /opt/ros/ivalab/devel/setup.bash
+roslaunch semantic_segmentation_husy seg_husky.launch
+```
+and in a second:
+```
+source /opt/ros/ivalab/devel/setup.bash
+rosrun semantic_segmentation_husky husky_teleop
+```
+Teleoperate the husky and see it move awkwardly.  By awkwardly, it rotates about the rear axle rather than around the center of mass.
+
+A second test assumes that the computer in question can be attached to an actual turtlebot.  Again, in two separate terminals:
+```
+source /opt/ros/ivalab/devel/setup.bash
+roslaunch turtlebot_bringup minimal.launch
+```
+and
+```
+source /opt/ros/ivalab/devel/setup.bash
+roslaunch turtlebot_teleop keyboard_teleop.launch
+```
+The above is done from memory and might be off.  Will correct once able to connect to the actual robot base.
 
 ## Warnings to Eventually Address
 
