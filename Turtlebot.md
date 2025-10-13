@@ -50,7 +50,7 @@ If started in proper path and running as expected, then there should be a ton of
 > [build] Runtime: 1 minute and 44.5 seconds total.                                                        
 > [build] Note: Workspace packages have changed, please re-source setup files to use them.
 
-when done with this step and no more ROS1 development will be done, it is probably best to get rid of the apt source for ROS1 Noetic/Focal.
+when done with this step and no more ROS1 development will be done, it is probably best to get rid of the apt source for ROS1 Noetic/Focal. _Update:_ The last time run, the output indicated 147 packages (on 10/13/2025).
 
 The output above indicates to re-source the setup file.  For this build in `/opt/ros/ivalab` you'll have to source its setup,
 ```
