@@ -5,7 +5,7 @@
 sudo apt-get install -y linux-headers-$(uname -r) git lsb-release wget gnupg
 sudo apt-get install -y pkg-config libyaml-dev  g++ scons  libbullet-dev libsdl1.2-* libsdl-image1.2*
 sudo app-get install -y libspnav0 libspnav-dev bluetooth libbluetooth-devlibcwiid-dev libcwiid1
-sudo apt-get install -y ecl eclib-tools
+sudo apt-get install -y ecl eclib-tools sip-dev
 
 # Get hddtemp from older source.
 cd ~/Downloads
