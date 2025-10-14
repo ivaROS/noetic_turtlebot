@@ -1,0 +1,4 @@
+-git:
+    local-name: slam_toolbox
+    uri: https://github.com/SteveMacenski/slam_toolbox
+    version: noetic-devel
