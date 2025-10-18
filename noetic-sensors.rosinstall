@@ -1,0 +1,29 @@
+- git:
+    local-name: hokuyo/urg_node
+    uri: https://github.com/ros-drivers/urg_node.git
+    version: melodic-devel
+- git:
+    local-name: SensorKinect
+    uri: https://github.com/avin2/SensorKinect.git
+    version: 
+- git:
+    local-name: openni_camera
+    uri: https://github.com/ros-drivers/openni_camera.git
+    version: ros1
+- git:
+    local-name: openni2_camera
+    uri: https://github.com/ros-drivers/openni2_camera.git
+    version: ros1
+- git:
+    local-name: velodyne
+    uri: https://github.com/ros-drivers/velodyne.git
+    version: master
+- git:
+    local-name: hesai
+    uri: https://github.com/HesaiTechnology/HesaiLidar_General_ROS.git
+    version: master
+- git:
+    local-name: realsense-ros
+    uri: https://github.com/IntelRealSense/realsense-ros.git
+    version: ros1-legacy
+
