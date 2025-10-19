@@ -1,3 +1,7 @@
+# Gazebo Ignition - Fortress 
+# This install has been troublesome.  It looks like ordering is important, as
+# well as specifying the minium possible.  What is below should do the trick.
+#
 
 sudo apt-get update
 sudo apt-get install -y lsb-release wget gnupg
