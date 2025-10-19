@@ -91,6 +91,10 @@ roslaunch turtlebot_teleop keyboard_teleop.launch
 ```
 The above is done from memory and might be off.  Will correct once able to connect to the actual robot base.
 
+## Kobuki Firmware
+
+Launching the turtlebot may result in some kind of firmware warning (in red).  If the firmware is too old, then the warning communicates that it should be updated.  The process for that is not hard, but it is sensitive just as any firmware update is.  _Instructions to be entered soon-ish._
+
 ## Warnings to Eventually Address
 
 _EIGEN vs EIGEN3 Warning:_ <BR>
