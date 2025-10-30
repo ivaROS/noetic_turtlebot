@@ -1,0 +1,28 @@
+- git: 
+    local-name: rgbd_launch
+    uri: https://github.com/ros-drivers/rgbd_launch
+    version: noetic-devel
+- git: 
+    local-name: freenect_stack
+    uri: https://github.com/ros-drivers/freenect_stack
+    version: master
+- git:
+    local-name: urg_node
+    uri: https://github.com/ros-drivers/urg_c
+    version: master
+- git:
+    local-name: urg_node
+    uri: https://github.com/ros-drivers/urg_node
+    version: melodic-devel
+- git:
+    local-name: laser_proc
+    uri : http://github.com/ros-perception/laser_proc
+    version: melodic-devel
+- git:
+    local-name: ldrobot/ldlidar_stl_ros
+    uri: https://github.com/ldrobotSensorTeam/ldlidar_stl_ros.git
+    version: master
+- git:
+    local-name: slam_toolbox
+    uri: https://github.com/SteveMacenski/slam_toolbox
+    version: noetic-devel
