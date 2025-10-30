@@ -1,6 +1,4 @@
 
-source /opt/ros/noetic/setup.bash 
-
 rosdep update
 
 # The line below snags all of the generated ROS sources.  It should work.  If not, then
@@ -11,7 +9,8 @@ rosdep update
 mkdir src
 vcs import --input noetic-git-all-but-sim.rosinstall ./src
 
-export stereo_msgs_DIR=SRCPATH/install_isolated/share/stereo_msgs/cmake
+export NOETIC_SRCPATH=/opt/ros/noesrc
+export stereo_msgs_DIR=$NOETIC_SRCPATH/devel_isolated/share/stereo_msgs/cmake
 
 #./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release
 ./src/catkin/bin/catkin_make_isolated --install --install-space /opt/ros/noetic -DCMAKE_BUILD_TYPE=Release
