@@ -34,6 +34,7 @@ sudo apt-get install -y python3-opencv libopencv-dev libopencv-core-dev libturbo
 sudo apt-get install -y pyqt5-dev python3-pyqt5 libgtest-dev liblz4-dev liborocos-kdl-dev \
 	libbz2-dev libgpgme-dev libyaml-cpp-dev libyaml-dev liblog4cxx-dev
 sudo apt-get install -y build-essential python3-empy python3-sip python3-nose
+sudo apt-get install python3-defusedxml python3-gnupg python3-pycryptodome
 
 echo "===== ROS1 Library Dependencies and Python Libraries done."
 echo "===== ROS1 Specialized packages next." 
@@ -41,7 +42,6 @@ echo "===== ROS1 Specialized packages next."
 # Set package manager to snag ROS stuff from older Ubuntu 20.04LTS sources.
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu focal main" > /etc/apt/sources.list.d/ros-noetic-focal.list'
 #curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 sudo apt update
 
 # Get the ROS1 python and building utilities. The PCL part seems to be a mix of 22/jammy and 
