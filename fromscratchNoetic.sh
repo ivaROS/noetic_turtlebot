@@ -5,7 +5,7 @@
 sudo apt-get install -y linux-headers-$(uname -r) git lsb-release wget gnupg
 sudo apt-get install -y pkg-config libyaml-dev  g++ scons  libbullet-dev libsdl1.2-* libsdl-image1.2*
 sudo app-get install -y libspnav0 libspnav-dev bluetooth libbluetooth-devlibcwiid-dev libcwiid1
-sudo apt-get install -y ecl eclib-tools
+sudo apt-get install -y ecl eclib-tools sip-dev
 
 # Get hddtemp from older source.
 cd ~/Downloads
@@ -40,8 +40,15 @@ echo "===== ROS1 Library Dependencies and Python Libraries done."
 echo "===== ROS1 Specialized packages next." 
 
 # Set package manager to snag ROS stuff from older Ubuntu 20.04LTS sources.
+# Using deprecated version with curl as the other one (echo "deb ...") seems to be off.  Not sure why
+# but need to debug on the next clean install attemp.
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu focal main" > /etc/apt/sources.list.d/ros-noetic-focal.list'
+<<<<<<< HEAD
 #curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+=======
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+#echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
+>>>>>>> 5126341c3d512ec4eded7bdbab0640149029f42a
 sudo apt update
 
 # Get the ROS1 python and building utilities. The PCL part seems to be a mix of 22/jammy and 

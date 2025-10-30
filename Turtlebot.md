@@ -33,7 +33,7 @@ sudo make install
 
 If using this option, then commenting out the apt line installing `ros-noetic-sophus` as the compile and make install will add it to the system.
 
-### 
+### Installation Script
 
 If all works out, this install should be as simple as running a single script from within the SRCPATH:
 ```
@@ -56,6 +56,15 @@ The output above indicates to re-source the setup file.  For this build in `/opt
 ```
 source /opt/ros/ivalab/devel/setup.bash
 ```
+
+#### Install Kobuki Driver
+
+Even though everything compiled, the system is not entirely setup.  The kobuki connection uses an FTDI USB to serial communication device with the kobuki communication software assuming it gets [configured a special way](https://wiki.ros.org/kobuki_ftdi). Basically whatever the kobuki connection device is, the device gets mapped to `/dev/kobuki` for a more consistent API connection point.  To enable that mapping, run:
+```
+rosrun kobuki_ftdi create_udev_rules
+```
+Once this has been done, it will be possible to communicate with the Turtlebot.  Then the keyboard teleoperation test below for the Turlteobt 2 base will work.
+
 #### Test Build
 
 The first test assumes that the Gazebo install process was also included, as the Turtlebot install included a Husky simulation repository structly for testing purposes.  In one terminal:
@@ -81,6 +90,10 @@ source /opt/ros/ivalab/devel/setup.bash
 roslaunch turtlebot_teleop keyboard_teleop.launch
 ```
 The above is done from memory and might be off.  Will correct once able to connect to the actual robot base.
+
+## Kobuki Firmware
+
+Launching the turtlebot may result in some kind of firmware warning (in red).  If the firmware is too old, then the warning communicates that it should be updated.  The process for that is not hard, but it is sensitive just as any firmware update is.  _Instructions to be entered soon-ish._
 
 ## Warnings to Eventually Address
 

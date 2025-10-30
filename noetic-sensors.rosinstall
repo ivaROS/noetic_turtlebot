@@ -1,0 +1,52 @@
+# LIDAR STUFF
+- git:
+    local-name: laser_proc
+    uri : http://github.com/ros-perception/laser_proc
+    version: melodic-devel
+- git:
+    local-name: hokuyo/urg_node
+    uri: https://github.com/ros-drivers/urg_node.git
+    version: melodic-devel
+- git:
+    local-name: hokuyo/urg_c
+    uri: https://github.com/ros-drivers/urg_c
+    version: master
+- git:
+    local-name: ldrobot/ldlidar_stl_ros
+    uri: https://github.com/ldrobotSensorTeam/ldlidar_stl_ros.git
+    version: master
+- git:
+    local-name: velodyne
+    uri: https://github.com/ros-drivers/velodyne.git
+    version: master
+- git:
+    local-name: hesai
+    uri: https://github.com/HesaiTechnology/HesaiLidar_General_ROS.git
+    version: master
+# DEPTH CAMERA STUFF
+- git: 
+    local-name: rgbd_launch
+    uri: https://github.com/ros-drivers/rgbd_launch
+    version: noetic-devel
+- git: 
+    local-name: freenect_stack
+    uri: https://github.com/ros-drivers/freenect_stack
+    version: master
+# below did not work well. above did.
+#- git:
+#    local-name: SensorKinect
+#    uri: https://github.com/avin2/SensorKinect.git
+#    version: 
+#- git:
+#    local-name: openni_camera
+#    uri: https://github.com/ros-drivers/openni_camera.git
+#    version: ros1
+#- git:
+#    local-name: openni2_camera
+#    uri: https://github.com/ros-drivers/openni2_camera.git
+#    version: ros1
+#- git:
+#    local-name: realsense-ros
+#    uri: https://github.com/IntelRealSense/realsense-ros.git
+#    version: ros1-legacy
+
