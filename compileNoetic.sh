@@ -1,6 +1,4 @@
 
-source /opt/ros/noetic/setup.bash 
-
 rosdep update
 
 # The line below snags all of the generated ROS sources.  It should work.  If not, then
