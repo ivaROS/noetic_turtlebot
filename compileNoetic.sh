@@ -6,9 +6,7 @@ rosdep update
 # with duplicate entries.  A git (not tar) version of the file exists too. It takes longer
 # but seems more reliable.
 #
-mkdir src
 vcs import --input noetic-git-all-but-sim.rosinstall ./src
-
 
 # Stereo msgs was causing problems.  Added below.  If you don't have issues, leave commented.
 # Otherwise uncomment.  Which DIR to uncomment most likely dependson the catkin make command
@@ -22,7 +20,10 @@ export ROS_INSTPATH=/opt/ros/noetic
 
 ./src/catkin/bin/catkin_make_isolated --install --install-space $ROS_INSTPATH -DCMAKE_BUILD_TYPE=Release
 
+export NOETIC_SRCPATH=/opt/ros/noesrc
+export stereo_msgs_DIR=$NOETIC_SRCPATH/devel_isolated/share/stereo_msgs/cmake
+
+
 #./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release
 #./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/usr/bin/python3
-
 

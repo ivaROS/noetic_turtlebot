@@ -5,7 +5,7 @@
 sudo apt-get install -y linux-headers-$(uname -r) git lsb-release wget gnupg curl
 sudo apt-get install -y pkg-config libyaml-dev  g++ scons  libbullet-dev libsdl1.2-* libsdl-image1.2*
 sudo app-get install -y libspnav0 libspnav-dev bluetooth libbluetooth-devlibcwiid-dev libcwiid1
-sudo apt-get install -y ecl eclib-tools sip-dev
+sudo apt-get install -y ecl eclib-tools sip-dev pkg-config
 
 # Get hddtemp from older source.
 cd ~/Downloads
@@ -35,6 +35,7 @@ sudo apt-get install -y pyqt5-dev python3-pyqt5 libgtest-dev liblz4-dev liboroco
 	libbz2-dev libgpgme-dev libyaml-cpp-dev libyaml-dev liblog4cxx-dev
 sudo apt-get install -y build-essential python3-empy python3-sip python3-nose
 sudo apt-get install python3-defusedxml python3-gnupg python3-pycryptodome
+sudo apt-get libpcap-dev libfreenect-dev
 
 echo "===== ROS1 Library Dependencies and Python Libraries done."
 echo "===== ROS1 Specialized packages next." 

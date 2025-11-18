@@ -1,16 +1,16 @@
 # LIDAR STUFF
-- git:
-    local-name: laser_proc
-    uri : http://github.com/ros-perception/laser_proc
-    version: melodic-devel
-- git:
-    local-name: hokuyo/urg_node
-    uri: https://github.com/ros-drivers/urg_node.git
-    version: melodic-devel
-- git:
-    local-name: hokuyo/urg_c
-    uri: https://github.com/ros-drivers/urg_c
-    version: master
+#- git:
+#    local-name: laser_proc
+#    uri : http://github.com/ros-perception/laser_proc
+#    version: melodic-devel
+#- git:
+#    local-name: hokuyo/urg_node
+#    uri: https://github.com/ros-drivers/urg_node.git
+#    version: melodic-devel
+#- git:
+#    local-name: hokuyo/urg_c
+#    uri: https://github.com/ros-drivers/urg_c
+#    version: master
 - git:
     local-name: ldrobot/ldlidar_stl_ros
     uri: https://github.com/ldrobotSensorTeam/ldlidar_stl_ros.git
