@@ -1,6 +1,11 @@
+build
+devel
+install
+logs
 build_isolated
 devel_isolated
 install_isolated
 lsrc
 src*
 .catkin_workspace
+.catkin_tools

@@ -2,3 +2,7 @@
     local-name: slam_toolbox
     uri: https://github.com/SteveMacenski/slam_toolbox
     version: noetic-devel
+- git:
+    local-name: sparse_bundle_adjustment
+    uri: https://github.com/ros-perception/sparse_bundle_adjustment.git
+    version: melodic-devel
