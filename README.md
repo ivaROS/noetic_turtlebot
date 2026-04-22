@@ -28,3 +28,20 @@ When the compile finishes, the last line of output sould be something like:
     <== Finished processing package [211 of 211]: 'xacro'
 
 Once done, you've got a basic version of Noetic working. Of course, even this version is missing quite a bit. The missing parts should be added as needed. For us, that includes things like the Turtlebot/Kobuki ROS1 code and `move_base`.  The next script helps take care of those missing elements, if desired.  It is customized to our group's needs.   You can always create a similar version with custom script for your needs.
+
+### Compiling Turtlebot
+
+If started in proper path and running as expected, then there should be a ton of output, some compiling information being output, then finally 146 packages successfully compiled.  In the last compile attempt, the following lines were output by the process:
+
+> [build] Summary: All 148 packages succeeded!
+> [build]   Ignored:   None.                                                                               
+> [build]   Warnings:  148 packages succeeded with warnings.
+> [build]   Abandoned: None.                                                                               
+> [build]   Failed:    None.                                                                               
+> [build] Runtime: 1 minute and 44.5 seconds total.                                                        
+> [build] Note: Workspace packages have changed, please re-source setup files to use them.
+
+when done with this step and no more ROS1 development will be done, it is probably best to get rid of the apt source for ROS1 Noetic/Focal. 
+
+_Update 10/13/2025:_ Output indicated 147 packages. <BR>
+_Update 04/22/2026:_ Output indicated 139 packages. 
