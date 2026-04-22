@@ -41,7 +41,18 @@ If started in proper path and running as expected, then there should be a ton of
 > [build] Runtime: 1 minute and 44.5 seconds total.                                                        
 > [build] Note: Workspace packages have changed, please re-source setup files to use them.
 
-when done with this step and no more ROS1 development will be done, it is probably best to get rid of the apt source for ROS1 Noetic/Focal. 
+when done with this step and no more ROS1 development will be done, it is probably best to get rid of the apt source for ROS1 Noetic/Focal:
+
+> sudo mv /etc/apt/sources.d/ros-noetic-focal.list ./
+
+The above line moves it into the repo and is not in the script even though it makes sense to put it there.  The reason to go with a manual process is to permit further ROS1 package additions.  Once done, do the move. If, for some reason, additional apt sources are needed, just copy it back in:
+
+> sudo mv ros-noetic-focal.list /etc/apt/sources.d
+
+Just be careful about conflict with ROS2 apt sources if that particular file is also there.  The ROS2 source list may need to be moved out temporarily.  Again, be super careful as this swapping around can lead to package conflicts.  Do this only if you are comfortable and know how to address apt errors and broken packages.  Naturally any changes to the apt sources will require a source update:
+
+> sudo apt-get update
+
 
 Please checkout the [Turtlebot instructions](Turtlebot.md) for any additional steps.  Some of the instructions there are already in the script.  Look more to the end (like kobuki dev rules).
 
