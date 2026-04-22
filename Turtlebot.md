@@ -2,6 +2,8 @@
 
 An attempt was made to make this as simple as possible.  There are two additional rosinstall files that need to be incorporated into the base install that will go into a separate extended workspace.
 
+The instructions below are a little stale.  Better to look directly at the `installTurtlebot` script.
+
 ### Compiling Library Dependencies
 
 One library needed is Sophus, which is a non-ROS library that is also not part of the standard Ubunti package library.  That means it needs to be downloaded and built separately.  The short/easy version is here and also used in the script.  Skip down lower if that's what you want to use.
@@ -63,7 +65,7 @@ Even though everything compiled, the system is not entirely setup.  The kobuki c
 ```
 rosrun kobuki_ftdi create_udev_rules
 ```
-Once this has been done, it will be possible to communicate with the Turtlebot.  Then the keyboard teleoperation test below for the Turlteobt 2 base will work.
+Once this has been done, it will be possible to communicate with the Turtlebot.  Then the keyboard teleoperation test below for the Turtlebot 2 base will work.
 
 #### Test Build
 

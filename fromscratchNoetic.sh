@@ -13,9 +13,10 @@ export CWD = `pwd`
 
 # Get core files needed from standard sources.
 sudo apt-get install -y linux-headers-$(uname -r) git lsb-release wget gnupg curl
-sudo apt-get install -y pkg-config libyaml-dev  g++ scons  libbullet-dev libsdl1.2-* libsdl-image1.2*
+sudo apt-get install -y pkg-config libyaml-dev g++ scons  libbullet-dev 
 sudo apt-get install -y libspnav0 libspnav-dev bluetooth libbluetooth-dev libcwiid-dev libcwiid1
 sudo apt-get install -y ecl eclib-tools sip-dev pkg-config
+sudo apt-get install -y libsdl1.2-dev libsdl-image1.2-dev
 
 # Get hddtemp from older source.
 cd ~/Downloads
