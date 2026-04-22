@@ -43,5 +43,8 @@ If started in proper path and running as expected, then there should be a ton of
 
 when done with this step and no more ROS1 development will be done, it is probably best to get rid of the apt source for ROS1 Noetic/Focal. 
 
+Please checkout the [Turtlebot instructions](Turtlebot.md) for any additional steps.  Some of the instructions there are already in the script.  Look more to the end (like kobuki dev rules).
+
+
 _Update 10/13/2025:_ Output indicated 147 packages. <BR>
 _Update 04/22/2026:_ Output indicated 139 packages. 
