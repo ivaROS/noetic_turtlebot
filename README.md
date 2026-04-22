@@ -28,3 +28,34 @@ When the compile finishes, the last line of output sould be something like:
     <== Finished processing package [211 of 211]: 'xacro'
 
 Once done, you've got a basic version of Noetic working. Of course, even this version is missing quite a bit. The missing parts should be added as needed. For us, that includes things like the Turtlebot/Kobuki ROS1 code and `move_base`.  The next script helps take care of those missing elements, if desired.  It is customized to our group's needs.   You can always create a similar version with custom script for your needs.
+
+### Compiling Turtlebot
+
+If started in proper path and running as expected, then there should be a ton of output, some compiling information being output, then finally 146 packages successfully compiled.  In the last compile attempt, the following lines were output by the process:
+
+> [build] Summary: All 148 packages succeeded!
+> [build]   Ignored:   None.                                                                               
+> [build]   Warnings:  148 packages succeeded with warnings.
+> [build]   Abandoned: None.                                                                               
+> [build]   Failed:    None.                                                                               
+> [build] Runtime: 1 minute and 44.5 seconds total.                                                        
+> [build] Note: Workspace packages have changed, please re-source setup files to use them.
+
+when done with this step and no more ROS1 development will be done, it is probably best to get rid of the apt source for ROS1 Noetic/Focal:
+
+> sudo mv /etc/apt/sources.d/ros-noetic-focal.list ./
+
+The above line moves it into the repo and is not in the script even though it makes sense to put it there.  The reason to go with a manual process is to permit further ROS1 package additions.  Once done, do the move. If, for some reason, additional apt sources are needed, just copy it back in:
+
+> sudo mv ros-noetic-focal.list /etc/apt/sources.d
+
+Just be careful about conflict with ROS2 apt sources if that particular file is also there.  The ROS2 source list may need to be moved out temporarily.  Again, be super careful as this swapping around can lead to package conflicts.  Do this only if you are comfortable and know how to address apt errors and broken packages.  Naturally any changes to the apt sources will require a source update:
+
+> sudo apt-get update
+
+
+Please checkout the [Turtlebot instructions](Turtlebot.md) for any additional steps.  Some of the instructions there are already in the script.  Look more to the end (like kobuki dev rules).
+
+
+_Update 10/13/2025:_ Output indicated 147 packages. <BR>
+_Update 04/22/2026:_ Output indicated 139 packages. 
