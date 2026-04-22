@@ -20,3 +20,11 @@ In order, they are:
 3. `installTurtlebot.sh`
 
 The last part is optional and specific to our robots.
+
+### Compiling Noetic.
+
+When the compile finishes, the last line of output sould be something like:
+
+    <== Finished processing package [211 of 211]: 'xacro'
+
+Once done, you've got a basic version of Noetic working. Of course, even this version is missing quite a bit. The missing parts should be added as needed. For us, that includes things like the Turtlebot/Kobuki ROS1 code and `move_base`.  The next script helps take care of those missing elements, if desired.  It is customized to our group's needs.   You can always create a similar version with custom script for your needs.
