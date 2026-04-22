@@ -1,16 +1,28 @@
+#!/usr/bin/bash
+#
 # Prepping to install ROS1 Noetic on a fresh Ubuntu 22.04LTS install 
 #
+# It should just work.  Problems incurred have to do with apt package changes.
+# This process is run enough times, as of recently, that we tend to 
+# find these problems pretty soon (within 1-2 months).
+#
+# Keep a look out for apt errors as that may mean the packages loaded need
+# to change or have changed and now cause problems.
+#
+export CWD = `pwd`
 
 # Get core files needed from standard sources.
 sudo apt-get install -y linux-headers-$(uname -r) git lsb-release wget gnupg curl
 sudo apt-get install -y pkg-config libyaml-dev  g++ scons  libbullet-dev libsdl1.2-* libsdl-image1.2*
-sudo app-get install -y libspnav0 libspnav-dev bluetooth libbluetooth-devlibcwiid-dev libcwiid1
+sudo apt-get install -y libspnav0 libspnav-dev bluetooth libbluetooth-dev libcwiid-dev libcwiid1
 sudo apt-get install -y ecl eclib-tools sip-dev pkg-config
 
 # Get hddtemp from older source.
 cd ~/Downloads
 wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15-53_amd64.deb
 sudo apt install ~/Downloads/hddtemp_0.3-beta15-53_amd64.deb
+rm ~/Downloads/hddtemp_0.3-beta15-53_amd64.deb
+cd $CWD
 
 echo "===== APT CORE PACKAGES done."
 
@@ -52,9 +64,9 @@ sudo apt update
 # Get the ROS1 python and building utilities. The PCL part seems to be a mix of 22/jammy and 
 # 20/focal version packages.  It bonked out with apt package dependencies from focal.
 #
-sudo apt-get install python3-rosdep python3-rosinstall-generator python3-vcstools python3-vcstool  \
+sudo apt-get install -y python3-rosdep python3-rosinstall-generator python3-vcstools python3-vcstool  \
 		     python3-catkin-tools python3-wstool python-is-python3 
-sudo apt-get install libpcl-ros-dev
+sudo apt-get install -y libpcl-ros-dev
 
 echo "===== ROS1 Specialized packages done. running rosdep init, then ready to go." 
 

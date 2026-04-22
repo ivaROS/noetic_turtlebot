@@ -1,4 +1,13 @@
-
+#!/usr/bin/bash
+#
+# All of the necessary dependencies have been pre-obtained in rosinstall files
+# located within this repository.  Before the rosinstall file was downloaded
+# from the ROS main source location, but since some changes are needed, we
+# eventually just kept a copy here.  Since ROS1 Noetic is EOL, there should be
+# no further changes to those sources and keeping a copy here should not be
+# detrimental.
+#
+export CWD=`pwd`
 rosdep update
 
 # The line below snags all of the generated ROS sources.  It should work.  If not, then
@@ -6,6 +15,9 @@ rosdep update
 # with duplicate entries.  A git (not tar) version of the file exists too. It takes longer
 # but seems more reliable.
 #
+# Update: the git version is default now.
+#
+mkdir -p src
 vcs import --input noetic-git-all-but-sim.rosinstall ./src
 
 # Stereo msgs was causing problems.  Added below.  If you don't have issues, leave commented.
@@ -15,15 +27,29 @@ vcs import --input noetic-git-all-but-sim.rosinstall ./src
 #export stereo_msgs_DIR=$NOETIC_SRCPATH/stereo_msgs/devel_isolated/share/stereo_msgs/cmake
 #export stereo_msgs_DIR=$NOETIC_SRCPATH/stereo_msgs/install_isolated/share/stereo_msgs/cmake
 
-
+export NOETIC_SRCPATH=$CWD
 export ROS_INSTPATH=/opt/ros/noetic
+
+# Create the location to install ROS1 Noetic and make sure to adjust ownership
+# so that installation may proceed.  Using sudo means that root is the owner and group.
+# Only root would be able to install and work in the ROS1 Noetic directory space.
+# Adjust directory to be owned by self using default Debian/linux user and group settings.  
+# Modify if different.
+#
+export MYGROUP=$USER
+
+sudo mkdir -p $ROS_INSTPATH
+sudo chown $USER:$MYGROUP -R $ROS_INSTPATH
 
 ./src/catkin/bin/catkin_make_isolated --install --install-space $ROS_INSTPATH -DCMAKE_BUILD_TYPE=Release
 
-export NOETIC_SRCPATH=/opt/ros/noesrc
 export stereo_msgs_DIR=$NOETIC_SRCPATH/devel_isolated/share/stereo_msgs/cmake
 
 
+# OTHER APPROACHES TAKEN.  ABOVE LINE IS WHAT WORKED AND PREFERRED.
+# FOR DEBUG OR OTHER INSTALL TYPES, ADJUST AND RUN AS FITTING.
+# PROBABLY IT IS BEST TO DO MANUALLY.
+#
 #./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release
 #./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/usr/bin/python3
 

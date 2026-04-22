@@ -1,6 +1,16 @@
-
+#!/usr/bin/bash
+#
 # Get current path, which is presumably where this script being invoked from.
+# Define location of this (extended) workspace for the additional packages.
+# Adjust NOETICPATH if it is elsewhere.  
+#
+# Define group of the user.  Currently using Debian/linux default for user.
+#
 OWD=`pwd`
+export IVAPATH=/opt/ros/ivalab
+NOETICPATH=/opt/ros/noetic
+
+export MYGROUP=$USER
 
 # First get and install the Sophus library.  We are putting it into a local source
 # directory called `lsrc` and then installing it to /usr/local/ as the sensible option.
@@ -24,22 +34,20 @@ OWD=`pwd`
 # IF YOU REALLY WANT TO COMPILE FROM SOURCE, THEN ADJUST FIRST LINE OF CMakeLists.txt
 # TO BE 3.22 AND NOT 3.24.  IT APPEARS TO WORK JUST FINE.
 # THE ABOVE LINES OF CODE TAKE A WHILE.
+#
+# Getting sophus from packages seems to work fine.  Using below.
 
-#sudo apt-get install ros-noetic-sophus
+sudo apt-get install -y ros-noetic-sophus
 
-# Makes an extended workspace under assumption that base workspace is in /opt/ros/noetic
-# Adjust NOETICPATH if it is elsewhere.  It will then make the extended workspace in 
-# /opt/ros/ivalab
-NOETICPATH=/opt/ros/noetic
+# Makes an extended workspace under assumption that base workspace is in NOETICPATH.
+# The extended workspace goes in IVAPATH
 
-cd /opt/ros
-sudo mkdir -p ivalab && sudo chown -R $USER ivalab
-cd ivalab
+sudo mkdir -p $IVAPATH && sudo chown -R $USER:$MYGROUP $IVAPATH
+cd $IVAPATH
 catkin init
 catkin config --mkdirs --extend $NOETICPATH --cmake-args -DCMAKE_BUILD_TYPE="Release" \
 		-DCMAKE_CXX_FLAGS_RELEASE="-O2 -g" -DCMAKE_C_FLAGS_RELEASE="-O2 -g"
 
-export IVAPATH=`pwd`
 
 wstool init src
 wstool merge -t src https://raw.githubusercontent.com/ivaROS/noetic_turtlebot/main/noetic-additional.rosinstall 
