@@ -6,11 +6,13 @@
 #
 # Define group of the user.  Currently using Debian/linux default for user.
 #
-OWD=`pwd`
-export IVAPATH=/opt/ros/ivalab
-NOETICPATH=/opt/ros/noetic
+export OWD=`pwd`
+export IVAPATH=/opt/ros1/ivalab
+export NOETICPATH=/opt/ros/noetic
 
 export MYGROUP=$USER
+
+source $NOETICPATH/setup.bash
 
 # First get and install the Sophus library.  We are putting it into a local source
 # directory called `lsrc` and then installing it to /usr/local/ as the sensible option.
@@ -64,14 +66,13 @@ patch src/ros_gz/ros_ign_bridge/CMakeLists.txt < $OWD/patches/ros_ign_bridge.pat
 patch src/ros_gz/ros_ign_image/CMakeLists.txt < $OWD/patches/ros_ign_image.patch
 
 rm -Rf src/kobuki_ros/kobuki_desktop/kobuki_gazebo*
-# Have not yet fixed this.  Deleting until fixed.
+# Have not yet fixed Gazebo specifications to work with modern version.  Deleting until fixed.
 
-# Line below already run as part of ROS1 install.  Commenting out. It complains when run again.
-# sudo rosdep init
 rosdep update
-source /opt/ros/noetic/setup.bash
 rosdep install --from-paths src --ignore-src -y -r
 
+# Correct some of the source file contents to prevent compile failures.
+#
 patch src/ecl_core/ecl_eigen/CMakeLists.txt < $OWD/patches/ecl_eigen.patch
 
 export HPATH="$IVAPATH/src/gazebo-ignition-ros/semantic_segmentation_husky/sdf"
@@ -79,5 +80,5 @@ export NEWHUSKY="$HPATH/husky.sdf"
 sed -i "s|husky\.sdf|$NEWHUSKY|g" $HPATH/world.sdf
 cp $OWD/patches/husky_teleop.py $HPATH/../scripts/
 
+# Build the workspace!!!
 catkin build
-

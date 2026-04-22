@@ -15,9 +15,9 @@ Then go into the directory of the cloned repository.  The process proceeds from 
 
 In order, they are:
 
-1. `fromscratchNoetic.sh`
-2. `compileNoetic.sh`
-3. `installTurtlebot.sh`
+1. `fromscratchNoetic`
+2. `compileNoetic`
+3. `installTurtlebot`
 
 The last part is optional and specific to our robots.
 
