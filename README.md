@@ -5,6 +5,10 @@ Provides a series of scripts thaat will install ROS1 Noetic, Gazebo Ignition, an
 The earlier repos had more detailed instructions but it become more and more difficult to maintain currency of the instructions as errors were fixed and the process evolved.  Now, the scripts are documented and serve as instructions if one would rather go line-by-line, or chunk-by-chunk. 
 Insights on how to proceed were obtained from a [medium post for Noetic installation](https://medium.com/@jean.guillaume.durand/installing-ros-noetic-on-ubuntu-22-04-1678e9dab1f5) and [a blog post for Gazebo Ignition installation](https://jeremypedersen.com/posts/2024-07-17-gazebo-ros-install).  The Turtlebot installation instructions were obtained through trial and error when following through on the [R20.04](https://github.com/ivaROS/noetic_turtlebot/releases/tag/R20.04) version of the instructions.  A few changes are needed due to newer compiler versions. 
 
+
+If weird stuff happens, check out the scripts as they have comments for when
+things go wrong and need repair.
+
 ## Process
 
 The entire process is a series of script to run.  I tend to clone into `noesrc` first (short for Noetic source),
