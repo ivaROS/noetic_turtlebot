@@ -66,10 +66,36 @@ sudo apt update
 # 20/focal version packages.  It bonked out with apt package dependencies from focal.
 #
 sudo apt-get install -y python3-rosdep python3-rosinstall-generator python3-vcstools python3-vcstool  \
-		     python3-catkin-tools python3-wstool python-is-python3 
+		     python3-catkin-tools python3-catkin-pkg python3-wstool python-is-python3 
 sudo apt-get install -y libpcl-ros-dev
+
 
 echo "===== ROS1 Specialized packages done. running rosdep init, then ready to go." 
 
 # Initialize ROS dependency manager.  Now ready to go with next steps once done.
 sudo rosdep init
+
+
+#============================== TROUBLESHOOTING ==============================
+
+
+# 2026/07/21 - PAV - Added line below because apt dependencies seem to have changed.
+#		The apt-get line above needed python3-catkin-pkg as it was not
+#		installed with catkin-tools.  Even then catkin_pkg was not
+#		found.  Weird.
+#
+# The problem is someone overriding system python by local python (via conda)
+# During compile look for line that reads:
+# -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3") 
+# If the python found is different, you've got a problem. Someone is overloading it.
+# Either reset path or adjust alias to point back to original python:
+# For alias solution:
+# alias python='/usr/bin/python3.10'
+# alias python3='/usr/bin/python3.10'
+# For path solution:
+# Try adjusting path. echo it then remove miniforge parts when setting.
+# Either way, the build/build_isolated, devel/devel_isolated, etc folders need to be wiped
+# because they point to the offending python.
+# Redo the compile from the catkin line. It might be OK to just rerun the script.
+
+
