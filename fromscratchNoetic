@@ -88,14 +88,9 @@ sudo rosdep init
 # During compile look for line that reads:
 # -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3") 
 # If the python found is different, you've got a problem. Someone is overloading it.
-# Either reset path or adjust alias to point back to original python:
-# For alias solution:
-# alias python='/usr/bin/python3.10'
-# alias python3='/usr/bin/python3.10'
-# For path solution:
-# Try adjusting path. echo it then remove miniforge parts when setting.
-# Either way, the build/build_isolated, devel/devel_isolated, etc folders need to be wiped
+# If it is conda, then just run:
+# conda deactivate
+# 
+# The build/build_isolated, devel/devel_isolated, etc folders need to be wiped
 # because they point to the offending python.
-# Redo the compile from the catkin line. It might be OK to just rerun the script.
-
-
+# After deleting them,rRedo the compile from the catkin line. It might be OK to rerun the script.
